@@ -18,10 +18,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		webcactipluginroot /usr/share/cacti/plugins/%{namesrc}
 
 %description
-Plugin for Cacti - This plugin houses common settings and functions used by different plugins.
+Plugin for Cacti - This plugin houses common settings and functions
+used by different plugins.
 
 %description -l pl.UTF-8
-Wtyczka do Cacti - 
+Wtyczka do Cacti -
 
 %prep
 %setup -q -c
@@ -29,12 +30,12 @@ Wtyczka do Cacti -
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{webcactipluginroot}
-cp -aRf * $RPM_BUILD_ROOT%{webcactipluginroot}
+cp -a * $RPM_BUILD_ROOT%{webcactipluginroot}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE  
+%doc LICENSE
 %{webcactipluginroot}
