@@ -18,11 +18,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		webcactipluginroot /usr/share/cacti/plugins/%{namesrc}
 
 %description
-Plugin for Cacti - This plugin houses common settings and functions
-used by different plugins.
+This Cacti plugin houses common settings and functions used by
+different plugins.
 
 %description -l pl.UTF-8
-Wtyczka do Cacti -
+Ta wtyczka Cacti zbiera wspólne ustawienia i funkcje używane przez
+różne wtyczki.
 
 %prep
 %setup -q -c
