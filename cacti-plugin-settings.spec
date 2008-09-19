@@ -3,12 +3,12 @@
 Summary:	Plugin for Cacti - Settings
 Summary(pl.UTF-8):	Wtyczka do Cacti - Ustawienia
 Name:		cacti-plugin-settings
-Version:	0.3
+Version:	0.5
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://mirror.cactiusers.org/downloads/plugins/%{namesrc}-%{version}.zip
-# Source0-md5:	331f316ab5ee54ada0a0458ec52b075d
+# Source0-md5:	a23406021b9e1c3a23d2ff61fec6de49
 URL:		http://www.cactiusers.org/
 BuildRequires:	rpm-perlprov
 Requires:	cacti
