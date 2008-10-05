@@ -1,4 +1,4 @@
-%define		namesrc	settings
+%define		plugin	settings
 %include	/usr/lib/rpm/macros.perl
 Summary:	Plugin for Cacti - Settings
 Summary(pl.UTF-8):	Wtyczka do Cacti - Ustawienia
@@ -7,7 +7,7 @@ Version:	0.5
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://mirror.cactiusers.org/downloads/plugins/%{namesrc}-%{version}.zip
+Source0:	http://mirror.cactiusers.org/downloads/plugins/%{plugin}-%{version}.zip
 # Source0-md5:	a23406021b9e1c3a23d2ff61fec6de49
 URL:		http://www.cactiusers.org/
 BuildRequires:	rpm-perlprov
@@ -15,7 +15,8 @@ Requires:	cacti
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		webcactipluginroot /usr/share/cacti/plugins/%{namesrc}
+%define		cactidir		/usr/share/cacti
+%define		plugindir		%{cactidir}/plugins/%{plugin}
 
 %description
 This Cacti plugin houses common settings and functions used by
@@ -30,8 +31,8 @@ różne wtyczki.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{webcactipluginroot}
-cp -a * $RPM_BUILD_ROOT%{webcactipluginroot}
+install -d $RPM_BUILD_ROOT%{plugindir}
+cp -a . $RPM_BUILD_ROOT%{plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -39,4 +40,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc LICENSE
-%{webcactipluginroot}
+%{plugindir}
