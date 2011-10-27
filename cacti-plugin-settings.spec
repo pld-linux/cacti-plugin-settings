@@ -1,18 +1,20 @@
 %define		plugin	settings
-%include	/usr/lib/rpm/macros.perl
+%define		php_min_version 5.0.0
+%include	/usr/lib/rpm/macros.php
 Summary:	Plugin for Cacti - Settings
 Summary(pl.UTF-8):	Wtyczka do Cacti - Ustawienia
-Name:		cacti-plugin-settings
-Version:	0.5
+Name:		cacti-plugin-%{plugin}
+Version:	0.71
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	http://mirror.cactiusers.org/downloads/plugins/%{plugin}-%{version}.zip
-# Source0-md5:	a23406021b9e1c3a23d2ff61fec6de49
-URL:		http://www.cactiusers.org/
-BuildRequires:	rpm-perlprov
-BuildRequires:	unzip
+Source0:	http://docs.cacti.net/_media/plugin:settings-v%{version}-1.tgz
+# Source0-md5:	f29150ecb1433f17d51fb3f54398fd3e
+URL:		http://docs.cacti.net/plugin:settings
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	cacti
+Requires:	php-common >= 4:%{php_min_version}
+Provides:	cacti(pia) >= 2.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -20,15 +22,20 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		plugindir		%{cactidir}/plugins/%{plugin}
 
 %description
-This Cacti plugin houses common settings and functions used by
-different plugins.
+Provides common infrastrucutre plugin services for Cacti's Plugin
+Architecture.
+
+Features:
+- Provides DNS Lookup API
+- Provides a Mailer API
 
 %description -l pl.UTF-8
 Ta wtyczka Cacti zbiera wspólne ustawienia i funkcje używane przez
 różne wtyczki.
 
 %prep
-%setup -q -c
+%setup -qc
+mv %{plugin}/{LICENSE,README} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -40,5 +47,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE
+%doc README
 %{plugindir}
