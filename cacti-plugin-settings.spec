@@ -5,7 +5,7 @@ Summary:	Plugin for Cacti - Settings
 Summary(pl.UTF-8):	Wtyczka do Cacti - Ustawienia
 Name:		cacti-plugin-%{plugin}
 Version:	0.71
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://docs.cacti.net/_media/plugin:settings-v%{version}-1.tgz
@@ -42,7 +42,7 @@ mv %{plugin}/{LICENSE,README} .
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{plugindir}
-cp -a . $RPM_BUILD_ROOT%{plugindir}
+cp -a %{plugin}/* $RPM_BUILD_ROOT%{plugindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
