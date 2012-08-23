@@ -5,7 +5,7 @@ Summary:	Plugin for Cacti - Settings
 Summary(pl.UTF-8):	Wtyczka do Cacti - Ustawienia
 Name:		cacti-plugin-%{plugin}
 Version:	0.71
-Release:	6
+Release:	7
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	http://docs.cacti.net/_media/plugin:settings-v%{version}-1.tgz
@@ -14,8 +14,8 @@ URL:		http://docs.cacti.net/plugin:settings
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	cacti
 Requires:	cacti(pia) >= 2.0
+Requires:	php(core) >= %{php_min_version}
 Requires:	php(pcre)
-Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-date
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
